@@ -7,7 +7,7 @@ def calcular_valor_inscricao(distancia,lote,idade):
      valor = 100.0
 
   if distancia == 10:
-     valor = 20.0
+     valor += 20.0
 
   if idade >= 60:
      valor = valor / 2
