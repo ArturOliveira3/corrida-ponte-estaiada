@@ -1,0 +1,24 @@
+def verificar_premiacao(idade, distancia, tempo_segundos):
+    """Verifica se o tempo atende ao limite de premiação da categoria."""
+    categoria = definir_categoria(idade)
+
+    if distancia == 5:
+        if categoria == "Juvenil":
+            limite = 25 * 60
+        elif categoria == "Adulto":
+            limite = 22 * 60
+        elif categoria == "Master":
+            limite = 25 * 60
+        else:
+            limite = 30 * 60
+    else:
+        if categoria == "Juvenil":
+            limite = 52 * 60
+        elif categoria == "Adulto":
+            limite = 46 * 60
+        elif categoria == "Master":
+            limite = 52 * 60
+        else:
+            limite = 63 * 60
+
+    return tempo_segundos <= limite
