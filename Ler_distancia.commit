@@ -1,0 +1,13 @@
+def ler_distancia():
+    """Solicita uma distância válida: 5 ou 10 quilômetros."""
+    while True:
+        try:
+            distancia = int(input("Digite a distância (5 ou 10 km): "))
+
+            if distancia == 5 or distancia == 10:
+                return distancia
+
+            print("Distância inválida. Digite apenas 5 ou 10.")
+
+        except ValueError:
+            print("Entrada inválida. Digite um número inteiro.")

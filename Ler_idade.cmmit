@@ -1,0 +1,8 @@
+def ler_idade():
+    """Solicita uma idade inteira."""
+    while True:
+        try:
+            idade = int(input("Digite sua idade: "))
+            return idade
+        except ValueError:
+            print("Idade inválida. Digite um número inteiro.")

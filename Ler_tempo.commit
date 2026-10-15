@@ -1,0 +1,12 @@
+def ler_tempo():
+    """Solicita um tempo válido no formato HH:MM:SS."""
+    while True:
+        tempo = input("Digite seu tempo (HH:MM:SS): ").strip()
+        segundos = tempo_para_segundos(tempo)
+
+        if segundos != -1:
+            return tempo, segundos
+
+        print("Tempo inválido!")
+        print("Utilize o formato HH:MM:SS.")
+        print("Exemplo: 00:34:29")

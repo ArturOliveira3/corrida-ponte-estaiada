@@ -1,0 +1,13 @@
+def ler_lote():
+    """Solicita um lote válido: 1 ou 2."""
+    while True:
+        try:
+            lote = int(input("Digite o lote (1 ou 2): "))
+
+            if lote == 1 or lote == 2:
+                return lote
+
+            print("Lote inválido. Digite apenas 1 ou 2.")
+
+        except ValueError:
+            print("Entrada inválida. Digite um número inteiro.")
