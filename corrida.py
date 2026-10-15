@@ -17,11 +17,11 @@ def calcular_valor_inscricao(distancia,lote,idade):
 
 def definir_categoria(idade):
 
-  if 16 >= idade < 19:
+  if 16 <= idade < 19:
     return 'Juvenil'
-  elif 20 >= idade < 39:
+  elif 20 <= idade < 39:
     return 'Adulto'
-  elif 40 >= idade < 59:
+  elif 40 <= idade < 59:
     return 'Master'
   else:
     return 'Veterano'
