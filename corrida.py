@@ -27,16 +27,26 @@ def definir_categoria(idade):
     return 'Veterano'
 
 
-def codigo_corredor(nome,idade):
+def codigo_corredor(nome, idade):
+    nome = nome.strip()
 
- partes = nome.split()
+    primeiro_espaco = nome.find(" ")
+    ultimo_espaco = nome.rfind(" ")
 
- primeiro_nome = partes[0]
- ultimo_sobrenome = partes[-1]
+    if primeiro_espaco == -1:
+        primeiro_nome = nome
+        ultimo_sobrenome = nome
+    else:
+        primeiro_nome = nome[:primeiro_espaco]
+        ultimo_sobrenome = nome[ultimo_espaco + 1:]
 
- codigo = primeiro_nome[:3].upper() + ultimo_sobrenome[:3].upper() + str(idade)
+    codigo = (
+        primeiro_nome[:3].upper()
+        + ultimo_sobrenome[:3].upper()
+        + str(idade)
+    )
 
- return codigo_corredor
+    return codigo
 
 
 def tempo_corredor(tempo):
