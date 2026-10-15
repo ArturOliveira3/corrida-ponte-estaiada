@@ -49,28 +49,31 @@ def codigo_corredor(nome, idade):
     return codigo
 
 
-def tempo_corredor(tempo):
+def tempo_para_segundos(tempo):
+    if len(tempo) != 8:
+        return -1
 
- if (tempo) != 8:
-  return -1
+    if tempo[2] != ":" or tempo[5] != ":":
+        return -1
 
- if tempo[2] != ':' or tempo[5] != ':' :
-  return -1
+    horas = tempo[:2]
+    minutos = tempo[3:5]
+    segundos = tempo[6:8]
 
- horas = tempo [:2]
- minutos = tempo[3:5]
- segundos = tempo[6:8]
- if not horas.isdigit() or not minutos.isdigit() or not segundos.isdigit():
-  return -1
+    if not horas.isdigit():
+        return -1
 
-  horas = int(horas)
-  minutos= int(minutos)
-  segundos = int(segundos)
+    if not minutos.isdigit() or not segundos.isdigit():
+        return -1
 
-  if minutos > 59 or sgundos > 59:
-    return -1
+    horas = int(horas)
+    minutos = int(minutos)
+    segundos = int(segundos)
 
- return horas * 3600 + minutos * 60 + segundos
+    if minutos > 59 or segundos > 59:
+        return -1
+
+    return horas * 3600 + minutos * 60 + segundos
 
 
 
