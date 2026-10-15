@@ -114,13 +114,15 @@ def verificar_premiacao(idade, distancia, tempo_segundo):
 def ler_idade():
     while True:
         try:
-          idade = int(input("Digite sua idade:"))
+            idade = int(input("Digite sua idade: "))
 
-          if idade >= 16:
-            return idade
-            print("A idade mímina é 16 anos.")
-          else:
-            print("Idade inválida.Digite a distância certa!")
+            if idade >= 16:
+                return idade
+            else:
+                print("Idade inválida. A idade mínima é 16 anos.")
+
+        except ValueError:
+            print("Idade inválida. Digite um número inteiro.")
 
 
 def ler_distancia():
