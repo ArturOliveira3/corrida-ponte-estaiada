@@ -90,7 +90,7 @@ def verificar_premiacao(idade, distancia, tempo_segundo):
    categoria = definir_categoria(idade)
    if distancia == 5:
     if categoria == "Juvenil":
-      limiete = 25 * 60
+      limite = 25 * 60
     elif categoria == "Adulto":
        limite = 22 * 60
     elif categoria == "Master":
@@ -136,7 +136,7 @@ def ler_lote():
     try:
       lote = int(input("Digite o lote (1 ou 2):"))
       if lote == 1 or lote == 2:
-        return lote
+        return lote 
         print('Digite apenas 1 ou 2.')
       else:
         print("Lote inválido. Digite o lote certo!")
@@ -175,7 +175,7 @@ def fazer_inscricao():
       print('__________________________________')
       return valor
 
-def calculr_resultado():
+def calcular_resultado():
       idade = ler_idade()
       distancia = ler_distancia()
 
@@ -191,18 +191,18 @@ def calculr_resultado():
       print("Tempo em segundos",tempo_segundo)
       print("Pace",pace)
       if premiado:
-        print("Pemiação: SIM ")
+        print("Premiação: SIM ")
       else:
-        print("PRemiação: NÃO")
+        print("Premiação: NÃO")
       print('__________________________________')
 
 def menu():
   quantidade_inscricoes = 0
-  total_arreacado = 0.00
+  total_arrecadado = 0.00
 
   while True:
     print('_______________ Corrida UNIFSA.26 ___________________')
-    print("1 - Faça sua escrição aqui")
+    print("1 - Faça sua inscrição aqui")
     print("2 - Calcular resultado")
     print("3 - Sair")
     print('__________________________________')
@@ -212,13 +212,13 @@ def menu():
     valor = fazer_inscricao()
 
     quantidade_inscricoes += 1
-    total_arreacado += valor
+    total_arrecadado += valor
   elif opcao == "2":
     calcular_resultado()
 
   elif opcao == "3":
     print("Inscrição realizada:", quantidade_inscricoes)
-    print("Total arrecadados: R$ ", total_arreacado)
+    print("Total arrecadados: R$ ", total_arrecadado)
     print("Sistema Encerrado")
 
 
