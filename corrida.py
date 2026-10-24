@@ -134,12 +134,12 @@ def ler_distancia():
 def ler_lote():
    while True:
     try:
-      lote = int(input("Digite o lote (1 ou 2):"))
+      lote = int(input("Digite o lote (1 ou 2): "))
       if lote == 1 or lote == 2:
         return lote 
-        print('Digite apenas 1 ou 2.')
-      else:
-        print("Lote inválido. Digite o lote certo!")
+      print('Digite apenas 1 ou 2.')
+    except ValueError:
+      print("Entrada inválida. Digite um número inteiro.")
 
 def ler_tempo():
    while True:
