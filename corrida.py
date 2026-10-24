@@ -81,7 +81,7 @@ def calcular_pace(tempo_segundos, distancia):
 
  pace_segundos = tempo_segundos // distancia
  minutos = pace_segundos // 60
- segundo = pace_segundos % 60
+ segundos  = pace_segundos % 60
 
  return f"{minutos}'{segundos:02d}\"/km"
 
