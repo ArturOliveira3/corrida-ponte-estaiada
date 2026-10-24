@@ -115,12 +115,7 @@ def ler_idade():
     while True:
         try:
             idade = int(input("Digite sua idade: "))
-
-            if idade >= 16:
-                return idade
-            else:
-                print("Idade inválida. A idade mínima é 16 anos.")
-
+            return idade
         except ValueError:
             print("Idade inválida. Digite um número inteiro.")
 
