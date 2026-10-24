@@ -123,12 +123,12 @@ def ler_idade():
 def ler_distancia():
   while True:
     try:
-      distancia = int(input("Digite a distancia (5 ou 10 km:)"))
+      distancia = int(input("Digite a distancia (5 ou 10 km): "))
       if distancia == 5 or distancia == 10:
         return distancia
-        print("Digite apenas 5 ou 10.")
-      else:
-        print("Distância inválida. Digite a distância certa!")
+      print("Distância inválida. Digite apenas 5 ou 10.")
+    except ValueError:
+      print("Entrada inválida. Digite um número inteiro.")
 
 
 def ler_lote():
