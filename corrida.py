@@ -144,13 +144,14 @@ def ler_lote():
 def ler_tempo():
    while True:
     try:
-      tempo = int(input("Digite seu tempo corrido: (HH: MM: SS):"))
-
+      tempo = input("Digite seu tempo corrido: (HH: MM: SS): ").strip()
       segundos = tempo_para_segundos(tempo)
+
       if segundos != -1:
         return tempo,segundos
+      
       print("Tempo inválido!")
-      print("Use o forma sugerido HH: MM: SS:")
+      print("Utilize o formato HH: MM: SS:")
       print("Exemplo de uso 00: 34: 29")
 
 def fazer_inscricao():
