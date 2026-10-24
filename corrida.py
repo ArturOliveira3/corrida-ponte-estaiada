@@ -86,7 +86,7 @@ def calcular_pace(tempo_segundos, distancia):
  return f"{minutos}'{segundos:02d}\"/km"
 
 
-def verificar_premiacao(idade, distancia, tempo_segundo):
+def verificar_premiacao(idade, distancia, tempo_segundos):
    categoria = definir_categoria(idade)
    if distancia == 5:
     if categoria == "Juvenil":
@@ -107,7 +107,7 @@ def verificar_premiacao(idade, distancia, tempo_segundo):
     else:
        limite = 63 * 60
 
-   return tempo_segundo <= limite
+   return tempo_segundos <= limite
 
 
 
