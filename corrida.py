@@ -191,24 +191,30 @@ def fazer_inscricao():
 
 def calcular_resultado():
       idade = ler_idade()
-      distancia = ler_distancia()
 
-      tempo,tempo_segundo = ler_tempo()
+      if idade < 16:
+        print("Idade inválida para a corrida. Idade mínima: 16 anos.")
+        return
 
-      categoria = definir_categoria(idade)
-      pace = calcular_pace(tempo_segundos, distancia)
-      premiacao = verificar_premiacao(idade, distancia, tempo_segundo)
+    distancia = ler_distancia()
+    tempo, tempo_segundos = ler_tempo()
 
-      print('_______________ Resultado UNIFSA.26 ___________________')
+    categoria = definir_categoria(idade)
+    pace = calcular_pace(tempo_segundos, distancia)
+    premiacao = verificar_premiacao(
+        idade, distancia, tempo_segundos
+    )
+
+      print("_______________ Resultado UNIFSA.26 ___________________")
       print("Categoria:",categoria)
       print("Tempo informado",tempo)
-      print("Tempo em segundos",tempo_segundo)
+      print("Tempo em segundos",tempo_segundos)
       print("Pace",pace)
-      if premiado:
+      if premiacao:
         print("Premiação: SIM ")
       else:
         print("Premiação: NÃO")
-      print('__________________________________')
+      print("_________________________________________________")
 
 def menu():
   quantidade_inscricoes = 0
