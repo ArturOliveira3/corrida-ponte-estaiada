@@ -218,30 +218,35 @@ def calcular_resultado():
 
 def menu():
   quantidade_inscricoes = 0
-  total_arrecadado = 0.00
+  total_arrecadado = 0.0
 
-  while True:
-    print('_______________ Corrida UNIFSA.26 ___________________')
-    print("1 - Faça sua inscrição aqui")
-    print("2 - Calcular resultado")
-    print("3 - Sair")
-    print('__________________________________')
+   while True:
+        print("\n_______________ Corrida UNIFSA.26 _______________")
+        print("1 - Fazer inscrição")
+        print("2 - Calcular resultado")
+        print("3 - Sair")
+        print("_________________________________________________")
 
-  opcao = input("Escolha uma das opções abaixo:")
-  if opcao == "1"
-    valor = fazer_inscricao()
+        opcao = input("Escolha uma das opções abaixo: ").strip()
+        if opcao == "1":    
+          valor = fazer_inscricao()
 
-    quantidade_inscricoes += 1
-    total_arrecadado += valor
-  elif opcao == "2":
-    calcular_resultado()
+          if valor is not None:
+              quantidade_inscricoes += 1
+              total_arrecadado += valor
 
-  elif opcao == "3":
-    print("Inscrição realizada:", quantidade_inscricoes)
-    print("Total arrecadados: R$ ", total_arrecadado)
-    print("Sistema Encerrado")
+        elif opcao == "2":
+            calcular_resultado()
+
+        elif opcao == "3":
+            print("\n_______________ Resumo Final ____________________")
+            print("Inscrições realizadas:", quantidade_inscricoes)
+            print(f"Total arrecadado: R$ {total_arrecadado:.2f}")
+            print("Sistema encerrado.")
+            break
+
+        else:
+            print("Opção inválida. Escolha 1, 2 ou 3.")
 
 
-  else:
-    print("Opção Inválida! Digite o que estiver dentro do Menu!")
 menu()
