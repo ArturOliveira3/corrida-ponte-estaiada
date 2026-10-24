@@ -157,24 +157,37 @@ def ler_tempo():
 def fazer_inscricao():
    while True:
     try:
-      nome = int(input("Digite o nome completo:"))
-      idade = ler_idade
-      categoria = definir_categoria
-      lote = ler_lote
-      distancia = ler_distancia
-      codigo = codigo_corredor
-      valor = calcular_valor_inscricao(distancia, lote, idade)
+      nome = input("Digite o nome completo: ").strip()
 
-      primeiro_nome = nome.split()[0]
+      while len(nome.split()) < 2:
+        print("Nome inválido. Digite o nome completo.")
+        nome = input("Digite o nome completo: ").strip()
 
-      print('_______________ Corrida UNIFSA.26 ___________________')
-      print("Digite seu Primeiro nome:",primeiro_nome)
-      print('Código do corredor',codigo)
-      print('Categoria ',categoria)
-      print('Distancia',distancia)
-      print("Valor a pagar: R$ ", valor)
-      print('__________________________________')
-      return valor
+    idade = ler_idade()
+
+    if idade < 16:
+        print("Inscrição recusada: idade mínima de 16 anos.")
+        return None
+
+    distancia = ler_distancia()
+    lote = ler_lote()
+
+    categoria = definir_categoria(idade)
+    codigo = codigo_corredor(nome, idade)
+    valor = calcular_valor_inscricao(distancia, lote, idade)
+
+    primeiro_espaco = nome.find(" ")
+    primeiro_nome = nome[:primeiro_espaco]
+
+      print("_______________ Corrida UNIFSA.26 _______________")
+    print("Primeiro nome:", primeiro_nome)
+    print("Código do corredor:", codigo)
+    print("Categoria:", categoria)
+    print("Distância:", distancia, "km")
+    print(f"Valor a pagar: R$ {valor:.2f}")
+    print("_________________________________________________")
+
+    return valor
 
 def calcular_resultado():
       idade = ler_idade()
