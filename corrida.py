@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 def calcular_valor_inscricao(distancia,lote,idade):
-
+  """Calcula o valor da inscrição conforme distância, lote e idade."""
   if lote == 1:
      valor = 80.0
   else:
@@ -16,7 +16,7 @@ def calcular_valor_inscricao(distancia,lote,idade):
 
 
 def definir_categoria(idade):
-
+  """Retorna a categoria do corredor conforme sua idade."""
   if 16 <= idade < 20:
     return 'Juvenil'
   elif 20 <= idade < 40:
@@ -28,6 +28,7 @@ def definir_categoria(idade):
 
 
 def codigo_corredor(nome, idade):
+    """Gera o código usando partes do nome e a idade do corredor."""
     nome = nome.strip()
 
     primeiro_espaco = nome.find(" ")
@@ -50,6 +51,7 @@ def codigo_corredor(nome, idade):
 
 
 def tempo_para_segundos(tempo):
+    """Converte HH:MM:SS em segundos ou retorna -1 se inválido."""
     if len(tempo) != 8:
         return -1
 
@@ -78,7 +80,7 @@ def tempo_para_segundos(tempo):
 
 
 def calcular_pace(tempo_segundos, distancia):
-
+"""Calcula o ritmo médio em minutos e segundos por quilômetro."""
  pace_segundos = tempo_segundos // distancia
  minutos = pace_segundos // 60
  segundos  = pace_segundos % 60
@@ -87,6 +89,7 @@ def calcular_pace(tempo_segundos, distancia):
 
 
 def verificar_premiacao(idade, distancia, tempo_segundos):
+   """Verifica se o tempo atende ao limite de premiação da categoria."""
    categoria = definir_categoria(idade)
    if distancia == 5:
     if categoria == "Juvenil":
@@ -112,6 +115,7 @@ def verificar_premiacao(idade, distancia, tempo_segundos):
 
 
 def ler_idade():
+    """Solicita uma idade inteira."""
     while True:
         try:
             idade = int(input("Digite sua idade: "))
@@ -121,6 +125,7 @@ def ler_idade():
 
 
 def ler_distancia():
+  """Solicita uma distância válida: 5 ou 10 quilômetros."""
   while True:
     try:
       distancia = int(input("Digite a distancia (5 ou 10 km): "))
@@ -132,6 +137,7 @@ def ler_distancia():
 
 
 def ler_lote():
+   """Solicita um lote válido: 1 ou 2."""
    while True:
     try:
       lote = int(input("Digite o lote (1 ou 2): "))
@@ -142,6 +148,7 @@ def ler_lote():
       print("Entrada inválida. Digite um número inteiro.")
 
 def ler_tempo():
+   """Solicita um tempo válido no formato HH:MM:SS."""
    while True:
     try:
       tempo = input("Digite seu tempo corrido: (HH: MM: SS): ").strip()
@@ -155,6 +162,7 @@ def ler_tempo():
       print("Exemplo de uso 00: 34: 29")
 
 def fazer_inscricao():
+   """Lê os dados do corredor e realiza a inscrição."""
    while True:
     try:
       nome = input("Digite o nome completo: ").strip()
@@ -190,6 +198,7 @@ def fazer_inscricao():
     return valor
 
 def calcular_resultado():
+      """Lê os dados da corrida e exibe o resultado do corredor."""
       idade = ler_idade()
 
       if idade < 16:
@@ -217,6 +226,7 @@ def calcular_resultado():
       print("_________________________________________________")
 
 def menu():
+"""Executa o menu e mantém o resumo das inscrições."""
   quantidade_inscricoes = 0
   total_arrecadado = 0.0
 
