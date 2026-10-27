@@ -234,6 +234,30 @@ def calcular_resultado():
         print("Premiação: NÃO")
       print("_________________________________________________")
 
+def listar_inscritos(corredores):
+    """Exibe os dados de todos os corredores cadastrados."""
+    if len(corredores) == 0:
+        print("Nenhum corredor cadastrado.")
+        return
+
+    for corredor in corredores:
+        print("------------------------------")
+        print("Nome:", corredor["nome"])
+        print("Idade:", corredor["idade"])
+        print("Distância:", corredor["distancia"], "km")
+        print("Lote:", corredor["lote"])
+        print("Código:", corredor["codigo"])
+        print("Categoria:", corredor["categoria"])
+        print(f"Valor: R$ {corredor['valor']:.2f}")
+
+        if corredor["tempo"] is None:
+            print("Tempo: Não registrado")
+        else:
+            print("Tempo:", corredor["tempo"])
+
+    print("------------------------------")
+
+
 def menu():
     """Executa o menu e mantém o resumo das inscrições."""
     corredores = []
