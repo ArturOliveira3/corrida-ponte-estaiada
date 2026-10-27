@@ -236,6 +236,7 @@ def calcular_resultado():
 
 def menu():
     """Executa o menu e mantém o resumo das inscrições."""
+    corredores = []
     quantidade_inscricoes = 0
     total_arrecadado = 0.0
 
@@ -248,11 +249,11 @@ def menu():
 
         opcao = input("Escolha uma das opções abaixo: ").strip()
         if opcao == "1":    
-          valor = fazer_inscricao()
+          corredor = fazer_inscricao()
 
-          if valor is not None:
+          if corredor is not None:
               quantidade_inscricoes += 1
-              total_arrecadado += valor
+              total_arrecadado += corredor["valor"]
 
         elif opcao == "2":
             calcular_resultado()
