@@ -80,7 +80,7 @@ def tempo_para_segundos(tempo):
 
 
 def calcular_pace(tempo_segundos, distancia):
-"""Calcula o ritmo médio em minutos e segundos por quilômetro."""
+ """Calcula o ritmo médio em minutos e segundos por quilômetro."""
  pace_segundos = tempo_segundos // distancia
  minutos = pace_segundos // 60
  segundos  = pace_segundos % 60
@@ -150,7 +150,6 @@ def ler_lote():
 def ler_tempo():
    """Solicita um tempo válido no formato HH:MM:SS."""
    while True:
-    try:
       tempo = input("Digite seu tempo corrido: (HH: MM: SS): ").strip()
       segundos = tempo_para_segundos(tempo)
 
@@ -165,35 +164,35 @@ def fazer_inscricao():
    """Lê os dados do corredor e realiza a inscrição."""
    nome = input("Digite o nome completo: ").strip()
 
-      while len(nome.split()) < 2:
+   while len(nome.split()) < 2:
         print("Nome inválido. Digite o nome completo.")
         nome = input("Digite o nome completo: ").strip()
 
-    idade = ler_idade()
+   idade = ler_idade()
 
-    if idade < 16:
-        print("Inscrição recusada: idade mínima de 16 anos.")
-        return None
+   if idade < 16:
+      print("Inscrição recusada: idade mínima de 16 anos.")
+      return None
 
-    distancia = ler_distancia()
-    lote = ler_lote()
+   distancia = ler_distancia()
+   lote = ler_lote()
 
-    categoria = definir_categoria(idade)
-    codigo = codigo_corredor(nome, idade)
-    valor = calcular_valor_inscricao(distancia, lote, idade)
+   categoria = definir_categoria(idade)
+   codigo = codigo_corredor(nome, idade)
+   valor = calcular_valor_inscricao(distancia, lote, idade)
 
-    primeiro_espaco = nome.find(" ")
-    primeiro_nome = nome[:primeiro_espaco]
+   primeiro_espaco = nome.find(" ")
+   primeiro_nome = nome[:primeiro_espaco]
 
-      print("_______________ Corrida UNIFSA.26 _______________")
-    print("Primeiro nome:", primeiro_nome)
-    print("Código do corredor:", codigo)
-    print("Categoria:", categoria)
-    print("Distância:", distancia, "km")
-    print(f"Valor a pagar: R$ {valor:.2f}")
-    print("_________________________________________________")
+   print("_______________ Corrida UNIFSA.26 _______________")
+   print("Primeiro nome:", primeiro_nome)
+   print("Código do corredor:", codigo)
+   print("Categoria:", categoria)
+   print("Distância:", distancia, "km")
+   print(f"Valor a pagar: R$ {valor:.2f}")
+   print("_________________________________________________")
 
-    corredor = {
+   corredor = {
         "nome": nome,
         "idade": idade,
         "distancia": distancia,
@@ -204,7 +203,7 @@ def fazer_inscricao():
         "tempo": None
     }
 
-    return corredor
+   return corredor
 
 
 def calcular_resultado():
@@ -215,12 +214,12 @@ def calcular_resultado():
         print("Idade inválida para a corrida. Idade mínima: 16 anos.")
         return
 
-    distancia = ler_distancia()
-    tempo, tempo_segundos = ler_tempo()
+      distancia = ler_distancia()
+      tempo, tempo_segundos = ler_tempo()
 
-    categoria = definir_categoria(idade)
-    pace = calcular_pace(tempo_segundos, distancia)
-    premiacao = verificar_premiacao(
+      categoria = definir_categoria(idade)
+      pace = calcular_pace(tempo_segundos, distancia)
+      premiacao = verificar_premiacao(
         idade, distancia, tempo_segundos
     )
 
@@ -236,11 +235,11 @@ def calcular_resultado():
       print("_________________________________________________")
 
 def menu():
-"""Executa o menu e mantém o resumo das inscrições."""
-  quantidade_inscricoes = 0
-  total_arrecadado = 0.0
+    """Executa o menu e mantém o resumo das inscrições."""
+    quantidade_inscricoes = 0
+    total_arrecadado = 0.0
 
-   while True:
+    while True:
         print("\n_______________ Corrida UNIFSA.26 _______________")
         print("1 - Fazer inscrição")
         print("2 - Calcular resultado")
