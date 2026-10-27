@@ -163,9 +163,7 @@ def ler_tempo():
 
 def fazer_inscricao():
    """Lê os dados do corredor e realiza a inscrição."""
-   while True:
-    try:
-      nome = input("Digite o nome completo: ").strip()
+   nome = input("Digite o nome completo: ").strip()
 
       while len(nome.split()) < 2:
         print("Nome inválido. Digite o nome completo.")
@@ -195,7 +193,19 @@ def fazer_inscricao():
     print(f"Valor a pagar: R$ {valor:.2f}")
     print("_________________________________________________")
 
-    return valor
+    corredor = {
+        "nome": nome,
+        "idade": idade,
+        "distancia": distancia,
+        "lote": lote,
+        "codigo": codigo,
+        "categoria": categoria,
+        "valor": valor,
+        "tempo": None
+    }
+
+    return corredor
+
 
 def calcular_resultado():
       """Lê os dados da corrida e exibe o resultado do corredor."""
