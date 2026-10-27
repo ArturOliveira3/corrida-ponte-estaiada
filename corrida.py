@@ -266,9 +266,11 @@ def menu():
 
     while True:
         print("\n_______________ Corrida UNIFSA.26 _______________")
-        print("1 - Fazer inscrição")
-        print("2 - Calcular resultado")
-        print("3 - Sair")
+        print("1 - Cadastrar corredor")
+        print("2 - Listar inscritos")
+        print("3 - Buscar corredor pelo código")
+        print("4 - Registrar tempo de prova")
+        print("5 - Sair")
         print("_________________________________________________")
 
         opcao = input("Escolha uma das opções abaixo: ").strip()
