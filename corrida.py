@@ -265,6 +265,16 @@ def listar_inscritos(corredores):
 
      return None
 
+    def registrar_tempo(corredores, codigo, tempo):
+     """Registra o tempo de prova de um corredor cadastrado."""
+     corredor = buscar_corredor(corredores, codigo)
+
+     if corredor is None:
+        return False
+
+     corredor["tempo"] = tempo
+     return True
+
 
 def menu():
     """Executa o menu e mantém o resumo das inscrições."""
