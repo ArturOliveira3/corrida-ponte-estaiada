@@ -530,8 +530,9 @@ Colab paid products
 
 Durante o desenvolvimento do projeto, foram tomadas decisões para organizar o código e facilitar sua manutenção.
 
-- **Organização do código:** Primeiro fezimos as primeiras construções no código pelo Google Colab, assim a dupla conseguia visualizar o desenvolvimento de ambos configurando conforme as exigencias do professor no trabalho
-- **Reutilização de código:** Para mais aprimoramento do trabalho utilizamos o Vscode e juntar as partes que foram divididas pela dupla, no fim juntamos para alinhamos o corpo final do trabalho para a entrega 
+- **Organização do código:** Inicialmente, utilizamos o Google Colab para desenvolver as primeiras partes do código. Essa abordagem permitiu que ambos os integrantes acompanhassem o progresso do projeto e realizassem ajustes conforme os requisitos estabelecidos pelo professor.
+
+- **Reutilização de código:** Posteriormente, utilizamos o Visual Studio Code (VS Code) para integrar as partes desenvolvidas separadamente por cada integrante. Por fim, reunimos e organizamos as implementações, alinhando a estrutura do código para consolidar a versão final do trabalho.
 
 ## 👥 Autores
 
