@@ -536,7 +536,7 @@ Durante o desenvolvimento do projeto, foram tomadas decisões para organizar o c
 ## 👥 Autores
 
 - **Leticia de O.S Leandro:** https://github.com/MusMus19Leh
-- **Arthur O.S Pereira:** https://github.com/ArturOliveira3
+- **Artur O.S Pereira:** https://github.com/ArturOliveira3
 
 ---
 
