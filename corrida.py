@@ -304,6 +304,29 @@ def menu():
             listar_inscritos(corredores)
 
         elif opcao == "3":
+            codigo = input("Digite o código do corredor: ").strip().upper()
+            corredor = buscar_corredor(corredores, codigo)
+
+            if corredor is not None:
+                print("------------------------------")
+                print("Nome:", corredor["nome"])
+                print("Idade:", corredor["idade"])
+                print("Distância:", corredor["distancia"], "km")
+                print("Lote:", corredor["lote"])
+                print("Código:", corredor["codigo"])
+                print("Categoria:", corredor["categoria"])
+                print(f"Valor: R$ {corredor['valor']:.2f}")
+
+                if corredor["tempo"] is None:
+                    print("Tempo: Não registrado")
+                else:
+                    print("Tempo:", corredor["tempo"])
+
+                print("------------------------------")
+            else:
+                print("Corredor não encontrado.")
+
+                
             print("\n_______________ Resumo Final ____________________")
             print("Inscrições realizadas:", quantidade_inscricoes)
             print(f"Total arrecadado: R$ {total_arrecadado:.2f}")
