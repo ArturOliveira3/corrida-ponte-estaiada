@@ -356,6 +356,9 @@ def menu():
                     print("Premiação:", "SIM" if premiacao else "NÃO")
 
 
+        elif opcao == "5":
+
+
             print("\n_______________ Resumo Final ____________________")
             print("Inscrições realizadas:", quantidade_inscricoes)
             print(f"Total arrecadado: R$ {total_arrecadado:.2f}")
@@ -363,7 +366,7 @@ def menu():
             break
 
         else:
-            print("Opção inválida. Escolha 1, 2 ou 3.")
+            print("Opção inválida. Escolha de 1 a 5.")
 
 
 menu()
