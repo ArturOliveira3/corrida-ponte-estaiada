@@ -326,7 +326,36 @@ def menu():
             else:
                 print("Corredor não encontrado.")
 
-                
+        elif opcao == "4":
+            codigo = input("Digite o código do corredor: ").strip().upper()
+            tempo = None
+
+            corredor = buscar_corredor(corredores, codigo)
+
+            if corredor is None:
+                print("Corredor não encontrado.")
+            else:
+                tempo, tempo_segundos = ler_tempo()
+
+                if registrar_tempo(corredores, codigo, tempo):
+                    categoria = corredor["categoria"]
+                    distancia = corredor["distancia"]
+                    pace = calcular_pace(tempo_segundos, distancia)
+                    premiacao = verificar_premiacao(
+                        corredor["idade"],
+                        distancia,
+                        tempo_segundos
+                    )
+
+                    print("Tempo registrado com sucesso.")
+                    print("Corredor:", corredor["nome"])
+                    print("Categoria:", categoria)
+                    print("Tempo:", tempo)
+                    print("Tempo em segundos:", tempo_segundos)
+                    print("Pace:", pace)
+                    print("Premiação:", "SIM" if premiacao else "NÃO")
+
+
             print("\n_______________ Resumo Final ____________________")
             print("Inscrições realizadas:", quantidade_inscricoes)
             print(f"Total arrecadado: R$ {total_arrecadado:.2f}")
