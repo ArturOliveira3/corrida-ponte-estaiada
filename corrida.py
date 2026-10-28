@@ -278,6 +278,19 @@ def listar_corredores_com_tempo(corredores):
     ]
 
 
+def listar_corredores_premiados(corredores):
+    """Retorna os corredores que atendem aos critérios de premiação."""
+    return [
+        corredor for corredor in corredores
+        if corredor["tempo"] is not None
+        and verificar_premiacao(
+            corredor["idade"],
+            corredor["distancia"],
+            tempo_para_segundos(corredor["tempo"])
+        )
+    ]
+
+
 def buscar_corredor(corredores, codigo):
      """Retorna o corredor correspondente ao código ou None se não existir."""
      for corredor in corredores:
