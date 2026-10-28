@@ -6,6 +6,10 @@ TEMPOS_LIMITE = (
     ("Veterano", 30 * 60, 63 * 60),
 )
 
+
+CODIGOS_UTILIZADOS = set()
+
+
 def calcular_valor_inscricao(distancia,lote,idade):
   """Calcula o valor da inscrição conforme distância, lote e idade."""
   if lote == 1:
@@ -35,26 +39,24 @@ def definir_categoria(idade):
 
 
 def codigo_corredor(nome, idade):
-    """Gera o código usando partes do nome e a idade do corredor."""
-    nome = nome.strip()
+     """Gera um código único para o corredor."""
+     partes_nome = nome.strip().split()
+     primeiro_nome = partes_nome[0]
+     sobrenome = partes_nome[-1]
 
-    primeiro_espaco = nome.find(" ")
-    ultimo_espaco = nome.rfind(" ")
+     codigo_base = (
+        primeiro_nome[:3] + sobrenome[:3] + str(idade)
+    ).upper()
 
-    if primeiro_espaco == -1:
-        primeiro_nome = nome
-        ultimo_sobrenome = nome
-    else:
-        primeiro_nome = nome[:primeiro_espaco]
-        ultimo_sobrenome = nome[ultimo_espaco + 1:]
+     codigo = codigo_base
+     contador = 1
 
-    codigo = (
-        primeiro_nome[:3].upper()
-        + ultimo_sobrenome[:3].upper()
-        + str(idade)
-    )
+     while codigo in CODIGOS_UTILIZADOS:
+        codigo = f"{codigo_base}{contador}"
+        contador += 1
 
-    return codigo
+     CODIGOS_UTILIZADOS.add(codigo)
+     return codigo
 
 
 def tempo_para_segundos(tempo):
