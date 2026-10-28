@@ -530,8 +530,8 @@ Colab paid products
 
 Durante o desenvolvimento do projeto, foram tomadas decisões para organizar o código e facilitar sua manutenção.
 
-- **Organização do código:** Letícia fez as primeiras construções no código pelo Google Colab, assim a dupla conseguia visualizar o desenvolvimento de ambos os integrantes 
-- **Reutilização de código:** Para mais aprimoramento do trabalho utilizamos o Vscode e juntar as partes que foram divididas em ambos os grupos, no fim juntar para formar o corpo final do trabalho 
+- **Organização do código:** Primeiro fezimos as primeiras construções no código pelo Google Colab, assim a dupla conseguia visualizar o desenvolvimento de ambos configurando conforme as exigencias do professor no trabalho
+- **Reutilização de código:** Para mais aprimoramento do trabalho utilizamos o Vscode e juntar as partes que foram divididas pela dupla, no fim juntamos para alinhamos o corpo final do trabalho para a entrega 
 
 ## 👥 Autores
 
