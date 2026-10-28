@@ -257,6 +257,19 @@ def listar_inscritos(corredores):
 
     print("------------------------------")
 
+
+def contar_por_categoria(corredores):
+    """Exibe a quantidade de corredores inscritos em cada categoria."""
+    categorias = {}
+
+    for corredor in corredores:
+        categoria = corredor["categoria"]
+        categorias[categoria] = categorias.get(categoria, 0) + 1
+
+    for categoria, quantidade in categorias.items():
+        print(f"{categoria}: {quantidade} inscrito(s)")
+
+
 def buscar_corredor(corredores, codigo):
      """Retorna o corredor correspondente ao código ou None se não existir."""
      for corredor in corredores:
@@ -288,7 +301,8 @@ def menu():
         print("2 - Listar inscritos")
         print("3 - Buscar corredor pelo código")
         print("4 - Registrar tempo de prova")
-        print("5 - Sair")
+        print("5 - Contagem por categoria")
+        print("6 - Sair")
         print("_________________________________________________")
 
         opcao = input("Escolha uma das opções abaixo: ").strip()
@@ -357,8 +371,9 @@ def menu():
 
 
         elif opcao == "5":
+            contar_por_categoria(corredores)
 
-
+        elif opcao == "6":
             print("\n_______________ Resumo Final ____________________")
             print("Inscrições realizadas:", quantidade_inscricoes)
             print(f"Total arrecadado: R$ {total_arrecadado:.2f}")
@@ -366,7 +381,7 @@ def menu():
             break
 
         else:
-            print("Opção inválida. Escolha de 1 a 5.")
+            print("Opção inválida. Escolha de 1 a 6.")
 
 
 menu()
