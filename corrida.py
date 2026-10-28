@@ -257,6 +257,14 @@ def listar_inscritos(corredores):
 
     print("------------------------------")
 
+    def buscar_corredor(corredores, codigo):
+     """Retorna o corredor correspondente ao código ou None se não existir."""
+     for corredor in corredores:
+        if corredor["codigo"] == codigo:
+            return corredor
+
+     return None
+
 
 def menu():
     """Executa o menu e mantém o resumo das inscrições."""
