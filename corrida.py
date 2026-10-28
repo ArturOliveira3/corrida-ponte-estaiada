@@ -344,6 +344,40 @@ def exibir_podio(corredores, distancia):
                 f"{corredor['tempo']}"
             )        
 
+def gerar_relatorio_final(corredores):
+    """Exibe estatísticas finais das provas de 5 km e 10 km."""
+    print("\n_______________ Relatório Final _______________")
+
+    for distancia in (5, 10):
+        classificados = [
+            corredor for corredor in corredores
+            if corredor["distancia"] == distancia
+            and corredor["tempo"] is not None
+        ]
+
+        print(f"\nProva de {distancia} km:")
+
+        if not classificados:
+            print("Nenhum tempo registrado.")
+            continue
+
+        tempos = [
+            tempo_para_segundos(corredor["tempo"])
+            for corredor in classificados
+        ]
+
+        media = sum(tempos) / len(tempos)
+        mais_rapido = min(
+            classificados,
+            key=lambda corredor: tempo_para_segundos(corredor["tempo"])
+        )
+
+        print(f"Tempo médio: {media:.2f} segundos")
+        print(
+            f"Corredor mais rápido: {mais_rapido['nome']} "
+            f"({mais_rapido['tempo']})"
+        )
+
 
 def buscar_corredor(corredores, codigo):
      """Retorna o corredor correspondente ao código ou None se não existir."""
@@ -471,6 +505,7 @@ def menu():
                 print("Distância inválida.")
 
         elif opcao == "8":
+            gerar_relatorio_final(corredores)
             print("\n_______________ Resumo Final ____________________")
             print("Inscrições realizadas:", quantidade_inscricoes)
             print(f"Total arrecadado: R$ {total_arrecadado:.2f}")
