@@ -301,7 +301,7 @@ def menu():
               total_arrecadado += corredor["valor"]
 
         elif opcao == "2":
-            calcular_resultado()
+            listar_inscritos(corredores)
 
         elif opcao == "3":
             print("\n_______________ Resumo Final ____________________")
