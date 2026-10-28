@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+TEMPOS_LIMITE = (
+    ("Juvenil", 25 * 60, 52 * 60),
+    ("Adulto", 22 * 60, 46 * 60),
+    ("Master", 25 * 60, 52 * 60),
+    ("Veterano", 30 * 60, 63 * 60),
+)
+
 def calcular_valor_inscricao(distancia,lote,idade):
   """Calcula o valor da inscrição conforme distância, lote e idade."""
   if lote == 1:
@@ -91,26 +98,17 @@ def calcular_pace(tempo_segundos, distancia):
 def verificar_premiacao(idade, distancia, tempo_segundos):
    """Verifica se o tempo atende ao limite de premiação da categoria."""
    categoria = definir_categoria(idade)
-   if distancia == 5:
-    if categoria == "Juvenil":
-      limite = 25 * 60
-    elif categoria == "Adulto":
-       limite = 22 * 60
-    elif categoria == "Master":
-      limite = 25 * 60
-    else:
-      limite = 30 * 60
-   else:
-    if categoria == "Juvenil":
-      limite = 52 * 60
-    elif categoria == "Adulto":
-       limite = 46 * 60
-    elif categoria == "Master":
-       limite = 52 * 60
-    else:
-       limite = 63 * 60
+   
+   for nome_categoria, limite_5km, limite_10km in TEMPOS_LIMITE:
+        if nome_categoria == categoria:
+            if distancia == 5:
+                limite = limite_5km
+            else:
+                limite = limite_10km
 
-   return tempo_segundos <= limite
+            return tempo_segundos <= limite
+
+   return False
 
 
 
@@ -257,7 +255,7 @@ def listar_inscritos(corredores):
 
     print("------------------------------")
 
-    def buscar_corredor(corredores, codigo):
+def buscar_corredor(corredores, codigo):
      """Retorna o corredor correspondente ao código ou None se não existir."""
      for corredor in corredores:
         if corredor["codigo"] == codigo:
@@ -265,7 +263,7 @@ def listar_inscritos(corredores):
 
      return None
 
-    def registrar_tempo(corredores, codigo, tempo):
+def registrar_tempo(corredores, codigo, tempo):
      """Registra o tempo de prova de um corredor cadastrado."""
      corredor = buscar_corredor(corredores, codigo)
 
