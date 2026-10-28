@@ -270,6 +270,14 @@ def contar_por_categoria(corredores):
         print(f"{categoria}: {quantidade} inscrito(s)")
 
 
+def listar_corredores_com_tempo(corredores):
+    """Retorna os corredores que possuem tempo registrado."""
+    return [
+        corredor for corredor in corredores
+        if corredor["tempo"] is not None
+    ]
+
+
 def buscar_corredor(corredores, codigo):
      """Retorna o corredor correspondente ao código ou None se não existir."""
      for corredor in corredores:
