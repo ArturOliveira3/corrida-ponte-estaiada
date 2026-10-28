@@ -316,6 +316,35 @@ def classificar_corredores(corredores, distancia):
         )
 
 
+def exibir_podio(corredores, distancia):
+    """Exibe os três melhores corredores de cada categoria e distância."""
+    categorias = ("Juvenil", "Adulto", "Master", "Veterano")
+
+    for categoria in categorias:
+        classificados = [
+            corredor for corredor in corredores
+            if corredor["categoria"] == categoria
+            and corredor["distancia"] == distancia
+            and corredor["tempo"] is not None
+        ]
+
+        classificados.sort(
+            key=lambda corredor: tempo_para_segundos(corredor["tempo"])
+        )
+
+        print(f"\nPódio {categoria} - {distancia} km")
+
+        if not classificados:
+            print("Nenhum corredor com tempo registrado.")
+            continue
+
+        for posicao, corredor in enumerate(classificados[:3], start=1):
+            print(
+                f"{posicao}º lugar: {corredor['nome']} - "
+                f"{corredor['tempo']}"
+            )        
+
+
 def buscar_corredor(corredores, codigo):
      """Retorna o corredor correspondente ao código ou None se não existir."""
      for corredor in corredores:
