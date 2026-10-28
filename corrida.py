@@ -348,7 +348,8 @@ def menu():
         print("3 - Buscar corredor pelo código")
         print("4 - Registrar tempo de prova")
         print("5 - Contagem por categoria")
-        print("6 - Sair")
+        print("6 - Classificação geral")
+        print("7 - Sair")
         print("_________________________________________________")
 
         opcao = input("Escolha uma das opções abaixo: ").strip()
@@ -420,6 +421,16 @@ def menu():
             contar_por_categoria(corredores)
 
         elif opcao == "6":
+            distancia = input(
+                "Escolha a distância (5 ou 10 km): "
+            ).strip()
+
+            if distancia == "5" or distancia == "10":
+                classificar_corredores(corredores, int(distancia))
+            else:
+                print("Distância inválida.")
+
+        elif opcao == "7":
             print("\n_______________ Resumo Final ____________________")
             print("Inscrições realizadas:", quantidade_inscricoes)
             print(f"Total arrecadado: R$ {total_arrecadado:.2f}")
@@ -427,7 +438,6 @@ def menu():
             break
 
         else:
-            print("Opção inválida. Escolha de 1 a 6.")
-
+            print("Opção inválida. Escolha de 1 a 7.")
 
 menu()
