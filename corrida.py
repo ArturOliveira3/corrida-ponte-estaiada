@@ -296,6 +296,7 @@ def menu():
           corredor = fazer_inscricao()
 
           if corredor is not None:
+              corredores.append(corredor)
               quantidade_inscricoes += 1
               total_arrecadado += corredor["valor"]
 
